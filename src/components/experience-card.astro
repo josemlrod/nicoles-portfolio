@@ -1,0 +1,30 @@
+---
+type Props = {
+    timePeriod: string;
+    jobTitle: string;
+    jobDescription: string;
+    skills: Array<string>;
+}
+
+const {
+    timePeriod,
+    jobTitle,
+    jobDescription,
+    skills,
+} = Astro.props;
+---
+
+<div class="grid grid-cols-3 hover:bg-slate-800/50 py-2 px-4 rounded-lg drop-shadow-2xl">				
+    <header class="text-slate-400">{timePeriod}</header>
+    <div class="col-span-2 grid gap-y-1">
+        <p class="text-slate-200">{jobTitle}</p>
+        <p class="text-slate-400">
+            {jobDescription}
+        </p>
+        <div class="flex flex-wrap gap-2 mt-2">
+            {skills.map((s) => (
+                <div class="bg-teal-400/20 py-1 px-2 rounded-full text-teal-300 text-sm">{s}</div>
+            ))}
+        </div>
+    </div>
+</div>

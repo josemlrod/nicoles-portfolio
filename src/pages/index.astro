@@ -1,5 +1,33 @@
 ---
 import "@fontsource/poppins";
+import ExperienceCard from "../components/experience-card.astro";
+
+const EXPERIENCE = [
+  {
+    "timePeriod": "2024 — Present",
+    "jobTitle": "Senior Frontend Engineer, Accessibility",
+    "jobDescription": "Build and maintain critical components used to construct Klaviyo’s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
+    "skills": ["javascript", "accessibility", "react", "html", "css"]
+  },
+  {
+    "timePeriod": "2021 — 2024",
+    "jobTitle": "Frontend Developer",
+    "jobDescription": "Developed high-performance web applications for a SaaS platform. Worked with modern JavaScript frameworks to create responsive and scalable UIs. Collaborated with backend developers to integrate APIs.",
+    "skills": ["vue.js", "javascript", "sass", "git", "api integration"]
+  },
+  {
+    "timePeriod": "2019 — 2021",
+    "jobTitle": "UI/UX Designer & Developer",
+    "jobDescription": "Designed and developed interactive prototypes and user interfaces for various web applications. Focused on user experience and usability while implementing front-end development best practices.",
+    "skills": ["adobe xd", "html", "css", "javascript", "ux design", "figma"]
+  },
+  {
+    "timePeriod": "2017 — 2019",
+    "jobTitle": "Junior Frontend Engineer",
+    "jobDescription": "Contributed to the development of client-side web applications and collaborated with senior engineers to implement complex features. Participated in code reviews and improved code quality.",
+    "skills": ["javascript", "jquery", "html5", "css3", "bootstrap"]
+  }
+]
 ---
 
 <html lang="en">
@@ -11,8 +39,8 @@ import "@fontsource/poppins";
 		<title>Nicole's Portfolio</title>
 	</head>
 	<body class="bg-slate-900">
-		<main class="grid grid-cols-2 w-screen h-screen">
-			<section class="flex flex-col justify-between h-full border-2 border-green-400 px-12 py-16">
+		<main class="grid grid-cols-1 md:grid-cols-2 w-screen h-screen overflow-hidden">
+			<section class="flex flex-col justify-between h-full px-12 py-16">
 				<div class="flex flex-col gap-y-16">
 					<div class="flex flex-col gap-y-4">
 						<div>
@@ -60,11 +88,29 @@ import "@fontsource/poppins";
 					</a>
 				</footer>
 			</section>
-			<section class="h-full border-2 border-green-400"></section>
+			<section class="h-full px-12 py-16 flex flex-col gap-y-24 overflow-y-scroll max-h-screen">
+				<div class="flex flex-col gap-y-2">
+					<p class="text-slate-400">
+						Back in 2012, I decided to try my hand at creating custom <span class="text-slate-200">Tumblr</span> themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I’ve had the privilege of building software for an advertising agency, a start-up, a huge corporation, and a digital product studio.
+					</p>
+					<p class="text-slate-400">
+						My main focus these days is building accessible user interfaces for our customers at Klaviyo. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood. In my free time, I've also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+					</p>
+					<p class="text-slate-400">
+						When I’m not at the computer, I’m usually rock climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+					</p>
+				</div>
+				<div class="w-full flex flex-col gap-y-4">
+					{EXPERIENCE.map((e) => (
+						<ExperienceCard 
+							jobTitle={e.jobTitle}
+							jobDescription={e.jobDescription}
+							timePeriod={e.timePeriod}
+							skills={e.skills}
+						/>
+					))}
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
-
-<script>
-	console.log(window.location.hash)
-</script>
