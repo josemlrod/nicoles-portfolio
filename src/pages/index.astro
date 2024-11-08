@@ -38,40 +38,69 @@ const EXPERIENCE = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Nicole's Portfolio</title>
+		<style>
+			body {
+			  margin: 0;
+			  overflow: hidden;
+			  height: 100vh;
+			  background-color: #f0f0f0;
+			}
+		
+			.gradient-cursor {
+			  width: 800px;
+			  height: 800px;
+			  background: radial-gradient(circle at center, 
+			    rgba(58, 17, 104, 0.31) 0%,  /* Light blue with opacity */
+			    rgba(56, 189, 248, 0.1) 50%,
+			    transparent 70%
+			  );
+			  border-radius: 100%;
+			  pointer-events: none;  /* Ensures cursor doesn't interfere with clicks */
+			  position: fixed;       /* Fixed position relative to viewport */
+			  transform: translate(-50%, -50%); /* Centers the gradient on cursor */
+			  z-index: 9999;        /* Keeps cursor above other elements */
+			  transition: all 0.1s ease; /* Smooth movement */
+			  mix-blend-mode: screen;    /* Blends with background */
+			}
+		  </style>
 	</head>
 	
 	<body class="bg-slate-900">
-		<main class="grid grid-cols-1 md:grid-cols-2 w-screen h-screen overflow-hidden">
-			<section class="flex flex-col justify-between h-full px-12 py-16">
-				<div class="flex flex-col gap-y-16">
+		<main class="grid grid-cols-1 md:grid-cols-2 w-screen h-screen overflow-hidden ">
+			<section class="flex flex-col justify-between h-full pl-44 py-16">
+				<div class="flex flex-col ">
 					<div class="flex flex-col gap-y-4">
 						<div>
-							<h1 class="text-slate-200 text-4xl">Nicole Rodriguez</h1>
+							<h1 class="text-slate-200 text-5xl  py-5 font-bold sm:text-5xl tracking-tight">Nicole Rodriguez</h1>
 							<h3 class="text-slate-200 text-xl">Full-Stack Web Engineer</h3>
 						</div>
 						<p class="text-slate-400">I build pixel-perfect, engaging, and accessible digital experiences.</p>
 					</div>
-					<nav>
-						<ul class="hidden md:flex  flex-col gap-y-2   ">
-							<li>
-								<a class="flex items-center text-slate-200 uppercase gap-x-2 hover:scale-[115%] max-w-max transition-all" href="#About">
-									<span class="inline-block h-[1px] w-6 bg-slate-200"/><span>About</span>
+					<nav class="nav hidden md:block lg:block" aria-label="In-page navigation">
+						<ul class="hidden md:flex flex-col gap-y-3 mt-16 w-max">
+							<li class="group">
+								<a class="flex items-center py-3 text-slate-500 uppercase gap-x-2 hover:scale-110 transition-all text-xs font-bold tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200 active" href="#about">
+									<span class="nav-indicator inline-block h-[1px] w-7 bg-slate-600 transition-all group-hover:w-12 group-focus-visible:w-12 group-hover:bg-slate-200 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+									<span>About</span>
 								</a>
 							</li>
-							<li>
-								<a class="flex items-center text-slate-200 uppercase gap-x-2 gap-y-4 hover:scale-[115%] max-w-max transition-all" href="#Experience">
-									<span class="inline-block h-[1px] w-6 bg-slate-200 "/><span class="">Experience</span>
+							<li class="group">
+								<a class="flex items-center py-3 text-slate-500 uppercase gap-x-2 hover:scale-110 transition-all text-xs font-bold tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200" href="#Experience">
+									<span class="nav-indicator inline-block h-[1px] w-7 bg-slate-600 transition-all group-hover:w-12 group-focus-visible:w-12 group-hover:bg-slate-200 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+									<span>Experience</span>
 								</a>
 							</li>
-							<li>
-								<a class="flex items-center text-slate-200 uppercase gap-x-2 hover:scale-[115%] max-w-max transition-all" href="#Blog">
-									<span class="inline-block h-[1px] w-6 bg-slate-200"/><span>Blog</span>
+							<li class="group">
+								<a class="flex items-center py-3 text-slate-500 uppercase gap-x-2 hover:scale-110 transition-all text-xs font-bold tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200" href="#Blog">
+									<span class="nav-indicator inline-block h-[1px] w-7 bg-slate-600 transition-all group-hover:w-12 group-focus-visible:w-12 group-hover:bg-slate-200 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+									<span>Blog</span>
 								</a>
 							</li>
 						</ul>
 					</nav>
+					
 				</div>
-				<footer class="flex gap-x-8 items-center ">
+				<footer class="flex gap-x-8 items-center pb-9">
 					<!-- github --> 
 					<a class="hover:scale-125 transition-all" href="#">
 						<svg class="text-slate-400 w-6 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -90,7 +119,7 @@ const EXPERIENCE = [
 					</a>
 				</footer>
 			</section>
-			<section class="h-full px-12 py-16 flex flex-col gap-y-24 overflow-y-scroll max-h-screen" id="About">
+			<section class="h-full px-12 py-16 flex flex-col pr-44 gap-y-24 overflow-y-scroll max-h-screen" id="About">
 				<div class="flex flex-col gap-y-6">
 				 <!-- none of the styles want to apply to the div below. why? -->
 					<p class="uppercase text-slate-400  md:hidden lg:hidden " >About</p>
@@ -122,5 +151,16 @@ const EXPERIENCE = [
 			</section>
 
 		</main>
+		<div class="gradient-cursor"></div>
+
+  <script is:inline>
+    document.addEventListener("mousemove", (e) => {
+      const cursor = document.querySelector(".gradient-cursor");
+      if (cursor) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      }
+    });
+  </script>
 	</body>
 </html>
